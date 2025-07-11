@@ -35,7 +35,10 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.sensor import sensor_device_info_to_hass_device_info
 
-from .const import DOMAIN
+from .const import (
+    DOMAIN,
+    CENTIMETERS_PER_SQUARE_SECOND
+)
 
 SENSOR_DESCRIPTIONS = {
     (SSDSensorDeviceClass.TEMPERATURE, Units.TEMP_CELSIUS): SensorEntityDescription(
@@ -78,6 +81,14 @@ SENSOR_DESCRIPTIONS = {
         key="movement_counter",
         state_class=SensorStateClass.TOTAL_INCREASING,
         entity_registry_enabled_default=False,
+    ),
+
+    """juskalalie added"""
+    (SSDSensorDeviceClass.ACCELERATION, Units.CENTIMETERS_PER_SQUARE_SECOND): SensorEntityDescription(
+        key=f"{SSDSensorDeviceClass.ACCELERATION}_{Units.CENTIMETERS_PER_SQUARE_SECOND}",
+        device_class=SensorDeviceClass.ACCELERATION,
+        native_unit_of_measurement=CENTIMETERS_PER_SQUARE_SECOND,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
 }
 
