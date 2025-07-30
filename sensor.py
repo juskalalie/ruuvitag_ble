@@ -84,11 +84,13 @@ SENSOR_DESCRIPTIONS = {
     ),
 
     """juskalalie added"""
-    (SSDSensorDeviceClass.ACCELERATION, Units.CENTIMETERS_PER_SQUARE_SECOND): SensorEntityDescription(
-        key=f"{SSDSensorDeviceClass.ACCELERATION}_{Units.CENTIMETERS_PER_SQUARE_SECOND}",
+    "acceleration_x": SensorEntityDescription(
+        key="acceleration_x",
+        name="Acceleration X",
+        native_unit_of_measurement="G",
         device_class=SensorDeviceClass.ACCELERATION,
-        native_unit_of_measurement=CENTIMETERS_PER_SQUARE_SECOND,
         state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
 }
 
